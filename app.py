@@ -1,3 +1,12 @@
+'''
+application configurations,
+metadata object configuration,
+and attribute/subclass 
+configuration file
+
+RJProctor
+'''
+
 import dash
 import dash_bootstrap_components as dbc
 
@@ -51,6 +60,8 @@ external_stylesheets = [
 meta_tags=[
     {'name': 'viewport', 'content': 'width=device-width, initial-scale=1'}
 ]
+
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets, meta_tags=meta_tags)
 app.config.suppress_callback_exceptions = True # see https://dash.plot.ly/urls

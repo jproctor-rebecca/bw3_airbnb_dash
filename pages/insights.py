@@ -1,3 +1,11 @@
+'''
+blog space for insights 
+on model predictions
+
+RJProctor
+'''
+
+
 # Imports from 3rd party libraries
 import dash
 import dash_bootstrap_components as dbc
