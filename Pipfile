@@ -6,18 +6,17 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-dash = "==1.9.1"
+dash = "*"
 dash-bootstrap-components = "*"
 gunicorn = "*"
 plotly = "*"
-pandas = "==1.1.2"
+matplotlib = "*"
 notebook = "*"
-joblib = "==0.16.0"
-numpy = "==1.18.5"
-category-encoders = "==2.2.2"
+joblib = "*"
+numpy = "*"
+pandas = "*"
+category-encoders = "*"
 sklearn = "*"
-matplotlib = "==3.2.2"
-seaborn = "==0.11.0"
 heroku = "*"
 
 [requires]

@@ -136,7 +136,7 @@ column2 = dbc.Col([
 
     '''
     dcc.Slider(
-            id='number-of-reviews', 
+            id='reviews', 
             min=0, 
             max=605, 
             step=5, 
@@ -171,7 +171,7 @@ column3 = dbc.Col([
                 [
                     'Select a Single City or Multiple Cities',
                     dcc.Dropdown(
-                        id='city-dropdown', multi=True,
+                        id='city', multi=True,
                         options=[
                             {'label': 'New York City', 'value': 'NYC'},
                             {'label': 'Montréal', 'value': 'MTL'},
@@ -199,7 +199,7 @@ column3 = dbc.Col([
                 [
                     'Select a Single Property Type or Multiple Property Types',
                     dcc.Dropdown(
-                        id='property-type-dropdown', multi=True,
+                        id='property', multi=True,
                         options=[
                             {'label': 'Camper/RV', 'value': 'Camper/RV'},
                             {'label': 'Condominium', 'value': 'Condominium'},
@@ -250,7 +250,7 @@ column3 = dbc.Col([
                 [
                     'Select a Single Room Type or Multiple Room Types',
                     dcc.Dropdown(
-                        id='room-type-dropdown', multi=True,
+                        id='room', multi=True,
                         options=[
                             {'label': 'Entire Home or Apartment', 'value': 'Entire home/apt'},
                             {'label': 'Private Room', 'value': 'Private room'},
@@ -270,7 +270,7 @@ column3 = dbc.Col([
                 [
                     'Select a Single Cancellation Policy or Multiple Cancellation Policies',
                     dcc.Dropdown(
-                        id='cancellation-policy-dropdown', multi=True,
+                        id='cancellation', multi=True,
                         options=[
                             {'label': 'Flexible', 'value': 'flexible'},
                             {'label': 'Moderate', 'value': 'moderate'},
@@ -291,7 +291,7 @@ column3 = dbc.Col([
                 [
                     'Select a True if the Cleaning Fee is Include in the Rental Price',
                     dcc.Dropdown(
-                        id='cleaning-fee-dropdown', multi=False,
+                        id='cleaning', multi=False,
                         options=[
                             {'label': 'True', 'value': 'True'},
                             {'label': 'False', 'value': 'False'},
@@ -303,48 +303,142 @@ column3 = dbc.Col([
 md=4,
 )
 
+@app.callback(
+    dash.dependencies.Output('accomodates', 'options'),
+    [dash.dependencies.Input('accomodates', 'search_value')],
+    #[dash.dependencies.State('city', 'value')],
+)
+def predict(accomodates, search_value):
+    df = pd.DataFrame(
+        columns=['accomodates', 'search_value'], 
+        data=[[accomodates, search_value]]
+    )
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred:.0f} individual(s)'
+
+@app.callback(
+    dash.dependencies.Output('bedrooms', 'options'),
+    [dash.dependencies.Input('bedrooms', 'search_value')],
+    #[dash.dependencies.State('city', 'value')],
+)
+def predict(bedrooms, search_value):
+    df = pd.DataFrame(
+        columns=['bedrooms', 'search_value'], 
+        data=[[bedrooms, search_value]]
+    )
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred:.0f} bedroom(s)'
+
+@app.callback(
+    dash.dependencies.Output('beds', 'options'),
+    [dash.dependencies.Input('beds', 'search_value')],
+    #[dash.dependencies.State('city', 'value')],
+)
+def predict(beds, search_value):
+    df = pd.DataFrame(
+        columns=['beds', 'search_value'], 
+        data=[[beds, search_value]]
+    )
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred:.0f} bed(s)'
+
+@app.callback(
+    dash.dependencies.Output('bathrooms', 'options'),
+    [dash.dependencies.Input('bathrooms', 'search_value')],
+    #[dash.dependencies.State('city', 'value')],
+)
+def predict(bathrooms, search_value):
+    df = pd.DataFrame(
+        columns=['bathrooms', 'search_value'], 
+        data=[[bathrooms, search_value]]
+    )
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred:.0f} bathroom(s)'
+
+@app.callback(
+    dash.dependencies.Output('reviews', 'options'),
+    [dash.dependencies.Input('reviews', 'search_value')],
+    #[dash.dependencies.State('city', 'value')],
+)
+def predict(reviews, search_value):
+    df = pd.DataFrame(
+        columns=['reviews', 'search_value'], 
+        data=[[reviews, search_value]]
+    )
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred:.0f} review(s)'
+
 # @app.callback(
 #     dash.dependencies.Output('output-container-date-picker-range', 'children'),
 #     [dash.dependencies.Input('my-date-picker-range', 'start_date'),
 #     dash.dependencies.Input('my-date-picker-range', 'end_date')],
 #)
 @app.callback(
-    dash.dependencies.Output('city-dropdown', 'options'),
-    [dash.dependencies.Input('city-dropdown', 'search_value')],
-    [dash.dependencies.State('city-dropdown', 'value')],
+    dash.dependencies.Output('city', 'options'),
+    [dash.dependencies.Input('city', 'search_value')],
+    [dash.dependencies.State('city', 'value')],
 )
 
-def predict(year, continent):
+def predict(city, search_value):
     df = pd.DataFrame(
-        columns=['year', 'continent'], 
-        data=[[year, continent]]
+        columns=['city', 'search_value'], 
+        data=[[city, search_value]]
     )
     y_pred = pipeline.predict(df)[0]
-    return f'{y_pred:.0f} years'
+    return f'{y_pred}'
 
 @app.callback(
-    dash.dependencies.Output('property-type-dropdown', 'options'),
-    [dash.dependencies.Input('property-type-dropdown', 'search_value')],
-    [dash.dependencies.State('property-type-dropdown', 'value')],
+    dash.dependencies.Output('property', 'options'),
+    [dash.dependencies.Input('property', 'search_value')],
+    [dash.dependencies.State('property', 'value')],
 )
 
-@app.callback(
-    dash.dependencies.Output('room-type-dropdown', 'options'),
-    [dash.dependencies.Input('room-type-dropdown', 'search_value')],
-    [dash.dependencies.State('room-type-dropdown', 'value')],
-)
+def predict(property, search_value):
+    df = pd.DataFrame(
+        columns=['property', 'search_value'], 
+        data=[[property, search_value]]
+    )
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred}'
 
 @app.callback(
-    dash.dependencies.Output('cancellation-policy-dropdown', 'options'),
-    [dash.dependencies.Input('cancellation-policy-dropdown', 'search_value')],
-    [dash.dependencies.State('cancellation-policy-dropdown', 'value')],
+    dash.dependencies.Output('room', 'options'),
+    [dash.dependencies.Input('room', 'search_value')],
+    [dash.dependencies.State('room', 'value')],
 )
+def predict(room, search_value):
+    df = pd.DataFrame(
+        columns=['room', 'search_value'], 
+        data=[[room, search_value]]
+    )
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred}'
 
 @app.callback(
-    dash.dependencies.Output('cleaning-fee-dropdown', 'options'),
-    [dash.dependencies.Input('cleaning-fee-dropdown', 'search_value')],
+    dash.dependencies.Output('cancellation', 'options'),
+    [dash.dependencies.Input('cancellation', 'search_value')],
+    [dash.dependencies.State('cancellation', 'value')],
+)
+def predict(cancellation, search_value):
+    df = pd.DataFrame(
+        columns=['cancellation', 'search_value'], 
+        data=[[cancellation, search_value]]
+    )
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred}'
+
+@app.callback(
+    dash.dependencies.Output('cleaning', 'options'),
+    [dash.dependencies.Input('cleaning', 'search_value')],
     #[dash.dependencies.State('cleaning-fee-dropdown', 'value')],
 )
+def predict(cleaning, search_value):
+    df = pd.DataFrame(
+        columns=['cleaning', 'search_value'], 
+        data=[[cleaning, search_value]]
+    )
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred}'
 
 def update_output(start_date, end_date):
     string_prefix = 'You have selected: '
