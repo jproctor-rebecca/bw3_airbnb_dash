@@ -37,7 +37,7 @@ column1 = dbc.Container([
             [
             html.Label(['Debbie Cohen ', html.A('link', href='/link-location')]),
             html.Label(['Moe Fa ', html.A('link', href='/link-location')]),
-            html.Label(['Eduardo Padilla ', html.A('link', href='/link-location')]),
+            html.Label(['Eduardo Padilla ', html.A('link', href='/medium.com/@eprecendez')]),
             html.Label(['Jeannine Proctor ', html.A('link', href='/proctor-rebecca.github.io')]),
             ], 
             className='lead',
