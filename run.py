@@ -15,7 +15,11 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
+<<<<<<< HEAD
 from pages import index, predictions, insights, process, graphs
+=======
+from pages import index, predictions, insights, process, pagename
+>>>>>>> 0b851287f7e96cb74675f5aabd2e12ead073c4b9
 
 
 # Imports from this application
@@ -27,11 +31,18 @@ navbar = dbc.NavbarSimple(
     brand='What Price Is Right?',
     brand_href='/', 
     children=[
+<<<<<<< HEAD
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), # user interface for model
         dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')),       # blog space - insights on model prediction
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')),         # blog space - insights on collaborative & model creation process
         dbc.NavItem(dcc.Link('Visualizations', href='/graphs', className='nav-link')), # blog space - additional graphs on model prediction or collaborative process
         dbc.NavItem(dcc.Link('The Team', href='/aboutus', className='nav-link')),        # blog space - housing links to each project team members GitHub.io/website/personal blog
+=======
+        dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Page Name', href='/pagename', className='nav-link')), 
+>>>>>>> 0b851287f7e96cb74675f5aabd2e12ead073c4b9
     ],
     sticky='top',
     color='primary', 
