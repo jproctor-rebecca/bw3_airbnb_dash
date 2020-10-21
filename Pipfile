@@ -15,9 +15,8 @@ notebook = "*"
 joblib = "*"
 numpy = "*"
 pandas = "*"
-category-encoders = "*"
+category_encoders = "*"
 sklearn = "*"
-heroku = "*"
 
 [requires]
 python_version = "3"
