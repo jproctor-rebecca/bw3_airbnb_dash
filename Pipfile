@@ -20,3 +20,14 @@ sklearn = "*"
 
 [requires]
 python_version = "3"
+
+[[documentation]]
+[matplotlib = "==3.2.2"]
+[seaborn = "==0.11.0"]
+[joblib  = "==0.16.0"]
+[pandas = "==1.1.2"]
+[numpy = "==1.18.5"]
+[category_encoders = "==2.2.2"]
+[sklearn = "==0.22.2.post1"]
+[heroku CLI]
+[heroku = "*"]
