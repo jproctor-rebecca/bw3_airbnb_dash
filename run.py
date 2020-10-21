@@ -25,26 +25,31 @@ from pages import index, predictions, insights, process
 # Navbar docs: https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar
 navbar = dbc.NavbarSimple(
     brand='What Price Is Right?',
+    # creates routes to pages
     brand_href='/', 
     children=[
-        dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), # user interface for model
-        dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')),       # blog space - insights on model prediction
-        dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')),         # blog space - insights on collaborative & model creation process
-        dbc.NavItem(dcc.Link('Visualizations', href='/graphs', className='nav-link')), # blog space - additional graphs on model prediction or collaborative process
-        dbc.NavItem(dcc.Link('The Team', href='/aboutus', className='nav-link')),        # blog space - housing links to each project team members GitHub.io/website/personal blog
+        # user interface for model
+        dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')),
+         # blog space - insights on model prediction 
+        dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')),
+        # blog space - insights on collaborative & model creation process
+        dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')),
+        # blog space - additional graphs on model prediction or collaborative process   
+        dbc.NavItem(dcc.Link('Visualizations', href='/graphs', className='nav-link')),
+        # blog space - housing links to each project team members GitHub.io/website/personal blog
+        dbc.NavItem(dcc.Link('The Team', href='/aboutus', className='nav-link')),
     ],
+    # doesn't move
     sticky='top',
-    color='primary', 
+    # AirBnB color scheme
+    color='primary',
+    # white/grey lettering on primary background
     light=False, 
     dark=True
 )
 
-# Footer docs:
-# dbc.Container, dbc.Row, dbc.Col: https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
-# html.P: https://dash.plot.ly/dash-html-components
-# fa (font awesome) : https://fontawesome.com/icons/github-square?style=brands
-# mr (margin right) : https://getbootstrap.com/docs/4.3/utilities/spacing/
-# className='lead' : https://getbootstrap.com/docs/4.3/content/typography/#lead
+
+# create footer
 footer = dbc.Container(
     dbc.Row(
         dbc.Col(
@@ -56,19 +61,14 @@ footer = dbc.Container(
                     html.Span(' RJProctor', className='mr-2'), 
                     html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:<jproctor.m.ed.tn@gmail>.com'), 
                     html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/<jproctor-rebecca>/<bw3_airbnb_dash>'), 
-                    #html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/<you>/'), 
-                    #html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/<you>'), 
-                ], 
+                   ], 
                 className='lead'
             )
         )
     )
 )
 
-# Layout docs:
-# html.Div: https://dash.plot.ly/getting-started
-# dcc.Location: https://dash.plot.ly/dash-core-components/location
-# dbc.Container: https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
+# create layout
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False), 
     navbar, 
@@ -78,7 +78,7 @@ app.layout = html.Div([
 ])
 
 
-# URL Routing for Multi-Page Apps: https://dash.plot.ly/urls
+# URL Routing for Multi-Page Apps
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):

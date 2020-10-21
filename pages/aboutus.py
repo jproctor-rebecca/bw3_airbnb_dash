@@ -29,15 +29,23 @@ column1 = dbc.Col(
 
 
             """
+# create footer
+column1 = dbc.Container([
+    dbc.Col(
+        dbc.Div([
+            html.P(
+            [
+            html.Label(['Debbie Cohen ', html.A('link', href='/link-location')]),
+            html.Label(['Moe Fa ', html.A('link', href='/link-location')]),
+            html.Label(['Eduardo Padilla ', html.A('link', href='/link-location')]),
+            html.Label(['Jeannine Proctor ', html.A('link', href='/proctor-rebecca.github.io')]),
+            ], 
+            className='lead',
+            )
+        ])
+    )
+])
 
-            html.Label(['Debbie Cohen ', html.A('link', href='/link-location')])
-            html.Label(['Moe Fa ', html.A('link', href='/link-location')])
-            html.Label(['Eduardo Padilla ', html.A('link', href='/link-location')])
-            html.Label(['Jeannine Proctor ', html.A('link', href='/proctor-rebecca.github.io')])
-        ),
-
-    ],
-)
 
 layout = dbc.Row([column1])
 
