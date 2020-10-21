@@ -47,13 +47,13 @@ column1 = dbc.Col(
 
 
 column2 = dbc.Col([
-    dcc.Markdown('Dates'),
+    dcc.Markdown('The Host has been with AirBnB: '),
     dcc.DatePickerRange(
         id='my-date-picker-range',
-        min_date_allowed=date(1995, 8, 5),
-        max_date_allowed=date(2017, 9, 19),
-        initial_visible_month=date(2017, 8, 5),
-        end_date=date(2017, 8, 25)
+        min_date_allowed=date(2010, 1, 1),
+        max_date_allowed=date(2030, 12, 31),
+        initial_visible_month=date(2020, 1, 1),
+        #end_date=date(2020, 1, 10)
     ),
     #dcc.
 
@@ -63,30 +63,20 @@ md=4,
 )
 
 
-column3 = dbc.Col(
-    dcc.Markdown('City'),
-            [
+column3 = dbc.Col([
+    dcc.Markdown('City: '),
             html.Label(
                 [
-                    "Single dynamic Dropdown", 
-                    dcc.Dropdown(
-                        id="my-dynamic-dropdown",
-                        options=[
-                            {'label': 'New York City', 'value': 'NYC'},
-                            {'label': 'Montréal', 'value': 'MTL'},
-                            {'label': 'San Francisco', 'value': 'SF'}
-                            ]
-                        ),
-                ]),
-            html.Label(
-                [
-                    "Multi dynamic Dropdown",
+                    'Select a Single City or Multiple Cities',
                     dcc.Dropdown(
                         id="my-multi-dynamic-dropdown", multi=True,
                         options=[
                             {'label': 'New York City', 'value': 'NYC'},
                             {'label': 'Montréal', 'value': 'MTL'},
                             {'label': 'San Francisco', 'value': 'SF'}
+                            {'label': 'Washington, DC', 'value': 'DC'},
+                            {'label': 'Los Angeles', 'value': 'LA'},
+                            {'label': 'Boston', 'value': 'Boston'}
                             ]
                         ),
                 ] 
