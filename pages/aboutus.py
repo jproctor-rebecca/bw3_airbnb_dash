@@ -18,7 +18,7 @@ from app import app
 # 1 column layout
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
 column1 = dbc.Col(
-    [
+    [   html.Img(src='assets/lambda.pnd', className='img-fluid')
         dcc.Markdown(
             """
         
