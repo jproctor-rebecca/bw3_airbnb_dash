@@ -15,7 +15,7 @@ import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
-from pages import index, predictions, insights, process, graphs
+from pages import index, predictions, insights, process, graphs, aboutus
 
 
 # Imports from this application
@@ -35,7 +35,7 @@ navbar = dbc.NavbarSimple(
         # blog space - insights on collaborative & model creation process
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')),
         # blog space - additional graphs on model prediction or collaborative process   
-        dbc.NavItem(dcc.Link('Visualizations', href='/graphs', className='nav-link')),
+        #dbc.NavItem(dcc.Link('Visualizations', href='/graphs', className='nav-link')),
         # blog space - housing links to each project team members GitHub.io/website/personal blog
         dbc.NavItem(dcc.Link('The Team', href='/aboutus', className='nav-link')),
     ],
@@ -90,8 +90,8 @@ def display_page(pathname):
         return insights.layout
     elif pathname == '/process':
         return process.layout
-    elif pathname == '/pagename':
-        return pagename.layout
+    elif pathname == '/aboutus':
+        return aboutus.layout
     else:
         return dcc.Markdown('## Page not found')
 
@@ -99,4 +99,4 @@ def display_page(pathname):
 #                 https://dash.plotly.com/basic-callbacks
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False, dev_tools_ui=False, dev_tools_props_check=False)

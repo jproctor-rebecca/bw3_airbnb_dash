@@ -1,6 +1,3 @@
-# Dash Template
-
-
 **What Price Is Right?**
 
 Colab link(s): 

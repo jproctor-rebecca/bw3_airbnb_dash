@@ -31,37 +31,37 @@ pipeline = load('assets/pipeline.joblib')
 
 # 2 column layout. 1st column width = 4/12
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
+# column1 = dbc.Col(
+#     [
+        
+#         html.Img(src='assets/AirBnB_1.jpg', className='img-fluid'),
+#         #[Graphic Courtesy of](https://www.kdrv.com/content/news/Airbnb-Hosts-Open-up-Their-Homes-to-Fire-Evacuees-490037431.html)
+#         dcc.Markdown(
+#             # '''
+        
+#             # ## Predictions
+
+#             # Complete the Form on this page to predict the price of 
+#             # an AirBnB or multiple types of AirBnBs.
+
+#             # When you have selected all of your responses, select the 
+#             # 'Submit' button below to retriev your prediction(s).
+
+#             # Have fun!
+
+#             # '''
+#             [
+#             html.H2('Expected Rental Price: ', className='mb-5'), 
+#             html.Div(id='prediction-content', className='lead')
+#             ]
+#         ),
+
+#     ],
+#     md=4,
+# )
+
+
 column1 = dbc.Col(
-    [
-        
-        html.Img(src='assets/AirBnB_1.jpg', className='img-fluid'),
-        #[Graphic Courtesy of](https://www.kdrv.com/content/news/Airbnb-Hosts-Open-up-Their-Homes-to-Fire-Evacuees-490037431.html)
-        dcc.Markdown(
-            # '''
-        
-            # ## Predictions
-
-            # Complete the Form on this page to predict the price of 
-            # an AirBnB or multiple types of AirBnBs.
-
-            # When you have selected all of your responses, select the 
-            # 'Submit' button below to retriev your prediction(s).
-
-            # Have fun!
-
-            # '''
-            [
-            html.H2('Expected Rental Price: ', className='mb-5'), 
-            html.Div(id='prediction-content', className='lead')
-            ]
-        ),
-
-    ],
-    md=4,
-)
-
-
-column2 = dbc.Col(
     [
     dcc.Markdown('## Numerical Features ', className='mb-5'),
     # '''
@@ -119,7 +119,7 @@ column2 = dbc.Col(
     # 0-8
 
     # '''
-    dcc.Markdown('Bedrooms: '),
+    dcc.Markdown('Bathrooms: '),
     dcc.Slider(
             id='bathrooms', 
             min=0, 
@@ -142,16 +142,10 @@ column2 = dbc.Col(
             max=605, 
             step=5, 
             value=75,
-            marks={n: str(n) for n in range(0, 605, 25)}, 
+            marks={n: str(n) for n in range(0, 605, 75)}, 
             className='mb-5', 
         ), 
-    ],
-md=4,
-)
 
-
-column3 = dbc.Col(
-    [
         dcc.Markdown('## Non-numerical Features ', className='mb-5'),
         # '''
         # city
@@ -162,9 +156,9 @@ column3 = dbc.Col(
         html.Div([
             html.Label(
                 [
-                    'Select a Single City or Multiple Cities',
+                    'Select a Single City',
                     dcc.Dropdown(
-                        id='city', multi=True,
+                        id='city',
                         options=[
                             {'label': 'New York City', 'value': 'NYC'},
                             {'label': 'Montréal', 'value': 'MTL'},
@@ -193,9 +187,9 @@ column3 = dbc.Col(
         html.Div([
             html.Label(
                 [
-                    'Select a Single Property Type or Multiple Property Types',
+                    'Select a Single Property Type',
                     dcc.Dropdown(
-                        id='property_type', multi=True,
+                        id='property_type',
                         options=[
                             {'label': 'Camper/RV', 'value': 'Camper/RV'},
                             {'label': 'Condominium', 'value': 'Condominium'},
@@ -247,9 +241,9 @@ column3 = dbc.Col(
             html.Div([
             html.Label(
                 [
-                    'Select a Single Room Type or Multiple Room Types',
+                    'Select a Single Room Type',
                     dcc.Dropdown(
-                        id='room_type', multi=True,
+                        id='room_type',
                         options=[
                             {'label': 'Entire Home or Apartment', 'value': 'Entire home/apt'},
                             {'label': 'Private Room', 'value': 'Private room'},
@@ -270,9 +264,9 @@ column3 = dbc.Col(
             html.Div([
             html.Label(
                 [
-                    'Select a Single Cancellation Policy or Multiple Cancellation Policies',
+                    'Select a Single Cancellation Policy',
                     dcc.Dropdown(
-                        id='cancellation_policy', multi=True,
+                        id='cancellation_policy',
                         options=[
                             {'label': 'Flexible', 'value': 'flexible'},
                             {'label': 'Moderate', 'value': 'moderate'},
@@ -297,10 +291,10 @@ column3 = dbc.Col(
                 [
                     'Select a True if the Cleaning Fee is Include in the Rental Price',
                     dcc.Dropdown(
-                        id='cleaning_fee', multi=False,
+                        id='cleaning_fee',
                         options=[
-                            {'label': 'True', 'value': 'True'},
-                            {'label': 'False', 'value': 'False'},
+                            {'label': 'Yes, Please.', 'value': 1},
+                            {'label': 'No, Thank you. ', 'value': 0},
                             ],
                         className='mb-5'
                         ),
@@ -309,21 +303,25 @@ column3 = dbc.Col(
     ],  
 md=4,
 )
-
-@app.callback(
-    dash.dependencies.Output('prediction-content', 'children'),
-    # user input options require Input dependency setting
+column2 = dbc.Col(
     [
-        dash.dependencies.Input('property_type', 'value'),
-        dash.dependencies.Input('room_type', 'value'),
-        dash.dependencies.Input('accommodates', 'value'),
-        dash.dependencies.Input('bathrooms', 'value'),
-        dash.dependencies.Input('cancellation_policy', 'value'),
-        dash.dependencies.Input('cleaning_fee', 'value'),
-        dash.dependencies.Input('city', 'value'),
-        dash.dependencies.Input('number_of_reviews', 'value'),
-        dash.dependencies.Input('bedrooms', 'value'),
-        dash.dependencies.Input('beds', 'value'), 
+        html.H2('Predicted Rental Price', className='mb-5'), 
+        html.Div(id='int_price', className='lead')
+    ]
+)
+@app.callback(
+    Output('int_price', 'children'),
+    # user input options require Input dependency setting
+    [Input('property_type', 'value'),
+     Input('room_type', 'value'),
+     Input('accommodates', 'value'),
+     Input('bathrooms', 'value'),
+     Input('cancellation_policy', 'value'),
+     Input('cleaning_fee', 'value'),
+     Input('city', 'value'),
+     Input('number_of_reviews', 'value'),
+     Input('bedrooms', 'value'),
+     Input('beds', 'value'), 
     ],
     # multi input options require additional State dependency setting
     # [
@@ -343,49 +341,50 @@ def predict(property_type, room_type, accommodates,	bathrooms, cancellation_poli
         data=[[property_type, room_type, accommodates,	bathrooms, cancellation_policy,
             cleaning_fee, city, number_of_reviews, bedrooms, beds]]
     )
-    y_pred = pipeline.predict(df)[1]
-    return y_pred
+    y_pred = pipeline.predict(df)[0]
+    return f'${y_pred:.2f}'
     #return print(df)
 
-def update_output(start_date, end_date):
-    string_prefix = 'You have selected: '
-    if start_date is not None:
-        start_date_object = date.fromisoformat(start_date)
-        start_date_string = start_date_object.strftime('%B %d, %Y')
-        string_prefix = string_prefix + 'Start Date: ' + start_date_string + ' | '
-    if end_date is not None:
-        end_date_object = date.fromisoformat(end_date)
-        end_date_string = end_date_object.strftime('%B %d, %Y')
-        string_prefix = string_prefix + 'End Date: ' + end_date_string
-    if len(string_prefix) == len('You have selected: '):
-        return 'Select a date to see it displayed here'
-    else:
-        return string_prefix
+# def update_output(start_date, end_date):
+#     string_prefix = 'You have selected: '
+#     if start_date is not None:
+#         start_date_object = date.fromisoformat(start_date)
+#         start_date_string = start_date_object.strftime('%B %d, %Y')
+#         string_prefix = string_prefix + 'Start Date: ' + start_date_string + ' | '
+#     if end_date is not None:
+#         end_date_object = date.fromisoformat(end_date)
+#         end_date_string = end_date_object.strftime('%B %d, %Y')
+#         string_prefix = string_prefix + 'End Date: ' + end_date_string
+#     if len(string_prefix) == len('You have selected: '):
+#         return 'Select a date to see it displayed here'
+#     else:
+#         return string_prefix
 
 
-def update_options(search_value):
-    if not search_value:
-        raise PreventUpdate
-    return [o for o in options if search_value in o["label"]]
+# def update_options(search_value):
+#     if not search_value:
+#         raise PreventUpdate
+#     return [o for o in options if search_value in o["label"]]
 
 
-def update_multi_options(search_value, value):
-    if not search_value:
-        raise PreventUpdate
-    # Make sure that the set values are in the option list, else they will disappear
-    # from the shown select list, but still part of the `value`.
-    return [
-        o for o in options if search_value in o["label"] or o["value"] in (value or [])
-    ]
+# def update_multi_options(search_value, value):
+#     if not search_value:
+#         raise PreventUpdate
+#     # Make sure that the set values are in the option list, else they will disappear
+#     # from the shown select list, but still part of the `value`.
+#     return [
+#         o for o in options if search_value in o["label"] or o["value"] in (value or [])
+#     ]
 
 
-layout = dbc.Row([column1, column2, column3])
+layout = dbc.Row([column1, column2])
 
 # Run app server: https://dash.plot.ly/getting-started
-if __name__ == '__main__':
-    app.run_server(debug=True)
+# if __name__ == '__main__':
+#     app.run_server(debug=True)
 
     # test = ['happy', 'sad', 'newt', 'cat', 'dog', 
     #         'sad', 'newt', 'cat', 'dog', 'bat']
 
     # predict(test[0][1][2][3][4][5][6][7][8][9])
+

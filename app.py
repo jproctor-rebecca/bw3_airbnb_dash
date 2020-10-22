@@ -63,8 +63,8 @@ meta_tags=[
 
 #external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
-app = dash.Dash(__name__, meta_tags=meta_tags)#external_stylesheets=external_stylesheets, 
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets, meta_tags=meta_tags)
+#app = dash.Dash(__name__, meta_tags=meta_tags)#external_stylesheets=external_stylesheets, 
 app.config.suppress_callback_exceptions = True # see https://dash.plot.ly/urls
 #app.config['suppress_callback_exceptions'] = True
 app.title = 'What Price Is Right?' # appears in browser title bar
