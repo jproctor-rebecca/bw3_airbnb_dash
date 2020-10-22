@@ -39,6 +39,7 @@ Debbie Cohen
  -Zoom Master
  
 https://github.com/dscohen75/dscohen75.github.io
+
 https://medium.com/@debbiecohen_22419
             
 
@@ -63,6 +64,7 @@ R. Jeannine Proctor
  -Zoom Master
  
 https://jproctor-rebecca.github.io/
+
 https://medium.com/@jproctor.m.ed.tn
 
 
