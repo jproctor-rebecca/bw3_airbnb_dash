@@ -2,32 +2,19 @@
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-
 [dev-packages]
-
 [packages]
 dash = "*"
 dash-bootstrap-components = "*"
 gunicorn = "*"
 plotly = "*"
-matplotlib = "*"
+matplotlib = "==3.2.2"
 notebook = "*"
-joblib = "*"
-numpy = "*"
-pandas = "*"
-category_encoders = "*"
-sklearn = "*"
-
+joblib  = "==0.16.0"
+numpy = "==1.18.5"
+pandas = "==1.1.2"
+category_encoders = "==2.2.2"
+scikit-learn = "==0.22.2.post1"
+seaborn = "==0.11.0"
 [requires]
 python_version = "3"
-
-[[documentation]]
-[matplotlib = "==3.2.2"]
-[seaborn = "==0.11.0"]
-[joblib  = "==0.16.0"]
-[pandas = "==1.1.2"]
-[numpy = "==1.18.5"]
-[category_encoders = "==2.2.2"]
-[sklearn = "==0.22.2.post1"]
-[heroku CLI]
-[heroku = "*"]

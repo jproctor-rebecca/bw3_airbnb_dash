@@ -1,0 +1,46 @@
+﻿For Home Page:
+
+
+<In the “Value Proposition” field:> How should you price your Airbnb property?
+
+
+<Explanation of what it does:> AirBOP is a strategic pricing application that helps Airbnb property owners decide on the optimal price for their rental property. It is for AirBnB hosts who want to keep their property or properties rented, while running a profitable endeavor at the same time. 
+
+
+
+
+Process/ Insights: 
+
+
+
+
+
+
+Initial exploration of our AirBnB dataset revealed 74,111 observations, with 28 features, and a target variable, log_price.
+
+
+The first steps were to prepare the dataset to fit an exploratory linear model. 
+
+
+1. Variables with > 5% missing data were removed.
+
+
+2. Variables with high cardinality or unusable variance were removed.
+
+
+3. Rare/ nontraditional property types were grouped together to reduce the cardinality of the property type variable.
+
+
+4. Log_price was exponentiated to return actual price. 
+
+
+Baseline MAE was 83.3.
+
+
+Linear Regression and LassoCV models were fit using Scikit-Learn. Categorical variables were one-hot encoded, missing values were imputed using the mean method, numerical variables were standardized. 
+
+
+For performance metrics, linear regression and LassoCV performed nearly equivalently, both returning MAEs between 56 and 58 for both training and validation data sets. 
+
+
+The plot below shows the top 30% of the most influential features in each of these models’ fit, and their coefficients. The linear regression model showed city, cancellation policy and room type as being the most influential on the rental price. The LassoCV model, after performing its own feature selection process, returned a room type of “entire apartment” as the most influential factor on the price, followed by the number of people accommodated and the number of bedrooms and bathrooms, and being in the city of San Francisco.

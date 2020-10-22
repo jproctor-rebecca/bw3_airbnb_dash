@@ -35,7 +35,7 @@ column1 = dbc.Col(
     [
         
         html.Img(src='assets/AirBnB_1.jpg', className='img-fluid'),
-        [Graphic Courtesy of](https://www.kdrv.com/content/news/Airbnb-Hosts-Open-up-Their-Homes-to-Fire-Evacuees-490037431.html)
+        #[Graphic Courtesy of](https://www.kdrv.com/content/news/Airbnb-Hosts-Open-up-Their-Homes-to-Fire-Evacuees-490037431.html)
         dcc.Markdown(
             # '''
         
@@ -314,24 +314,24 @@ md=4,
     dash.dependencies.Output('prediction-content', 'children'),
     # user input options require Input dependency setting
     [
-        dash.dependencies.Input('accommodates', 'value'),
-        dash.dependencies.Input('bedrooms', 'value'),
-        dash.dependencies.Input('beds', 'value'),
-        dash.dependencies.Input('bathrooms', 'value'),
-        dash.dependencies.Input('number_of_reviews', 'value'),
-        dash.dependencies.Input('city', 'value'),
         dash.dependencies.Input('property_type', 'value'),
         dash.dependencies.Input('room_type', 'value'),
+        dash.dependencies.Input('accommodates', 'value'),
+        dash.dependencies.Input('bathrooms', 'value'),
         dash.dependencies.Input('cancellation_policy', 'value'),
         dash.dependencies.Input('cleaning_fee', 'value'),
+        dash.dependencies.Input('city', 'value'),
+        dash.dependencies.Input('number_of_reviews', 'value'),
+        dash.dependencies.Input('bedrooms', 'value'),
+        dash.dependencies.Input('beds', 'value'), 
     ],
     # multi input options require additional State dependency setting
-    [
-        dash.dependencies.State('city', 'value'),
-        dash.dependencies.State('property_type', 'value'),
-        dash.dependencies.State('room_type', 'value'),
-        dash.dependencies.State('cancellation_policy', 'value'),
-    ],
+    # [
+    #     dash.dependencies.State('city', 'value'),
+    #     dash.dependencies.State('property_type', 'value'),
+    #     dash.dependencies.State('room_type', 'value'),
+    #     dash.dependencies.State('cancellation_policy', 'value'),
+    # ],
 )
 
 
@@ -343,9 +343,9 @@ def predict(property_type, room_type, accommodates,	bathrooms, cancellation_poli
         data=[[property_type, room_type, accommodates,	bathrooms, cancellation_policy,
             cleaning_fee, city, number_of_reviews, bedrooms, beds]]
     )
-    y_pred = pipeline.predict(df)[0]
-    return f'{y_pred}'
-  
+    y_pred = pipeline.predict(df)[1]
+    return y_pred
+    #return print(df)
 
 def update_output(start_date, end_date):
     string_prefix = 'You have selected: '
@@ -381,7 +381,11 @@ def update_multi_options(search_value, value):
 
 layout = dbc.Row([column1, column2, column3])
 
-# if __name__ == '__main__':
-#     app.run_server(debug=True)
+# Run app server: https://dash.plot.ly/getting-started
+if __name__ == '__main__':
+    app.run_server(debug=True)
 
+    # test = ['happy', 'sad', 'newt', 'cat', 'dog', 
+    #         'sad', 'newt', 'cat', 'dog', 'bat']
 
+    # predict(test[0][1][2][3][4][5][6][7][8][9])

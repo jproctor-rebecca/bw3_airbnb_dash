@@ -41,6 +41,7 @@ Debbie Cohen
 https://github.com/dscohen75/dscohen75.github.io
 https://medium.com/@debbiecohen_22419
             
+
 Moe Fa
 
  -Facilitator
@@ -53,6 +54,7 @@ Eduardo Padilla
  -GitHubManager
  
 https://medium.com/@eprecendez
+
 
 R. Jeannine Proctor
 

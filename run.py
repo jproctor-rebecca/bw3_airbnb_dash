@@ -50,23 +50,23 @@ navbar = dbc.NavbarSimple(
 
 
 # create footer
-footer = dbc.Container(
-    dbc.Row(
-        dbc.Col(
+footer = dbc.Container([
+    dbc.Row([
+        dbc.Col([
             html.P(
                 [
-                    html.Span('DCohen', className='mr-2'), 
-                    html.Span(' MFa', className='mr-2'), 
-                    html.Span(' EPadilla', className='mr-2'), 
-                    html.Span(' RJProctor', className='mr-2'), 
+                    html.Span('DCohen ', className='mr-2'), 
+                    html.Span('MFa ', className='mr-2'), 
+                    html.Span('EPadilla ', className='mr-2'), 
+                    html.Span('RJProctor ', className='mr-2'), 
                     html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:<jproctor.m.ed.tn@gmail>.com'), 
                     html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/<jproctor-rebecca>/<bw3_airbnb_dash>'), 
                    ], 
                 className='lead'
             )
-        )
-    )
-)
+        ])
+     ])
+])
 
 # create layout
 app.layout = html.Div([
@@ -96,5 +96,7 @@ def display_page(pathname):
         return dcc.Markdown('## Page not found')
 
 # Run app server: https://dash.plot.ly/getting-started
+#                 https://dash.plotly.com/basic-callbacks
+
 if __name__ == '__main__':
     app.run_server(debug=True)
