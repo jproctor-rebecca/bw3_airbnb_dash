@@ -37,7 +37,7 @@ column1 = dbc.Col(
 
 
             Baseline MAE was 83.3.
-            
+
 
             Linear Regression and LassoCV models were fit using Scikit-Learn. Categorical variables were one-hot encoded, missing values were imputed using the mean method, numerical variables were standardized. 
 
@@ -53,6 +53,7 @@ column2 = dbc.Col(
          html.Img(src='assets/log_price_distribution.png', className='img-fluid')
     ],
 )
+
 
     
 layout = dbc.Row([column1, column2])
