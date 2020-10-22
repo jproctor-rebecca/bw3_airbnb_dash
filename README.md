@@ -14,53 +14,67 @@ Heroku - https://dashboard.heroku.com/apps/airbnbrjp/deploy/heroku-git
 
 Other repos associated with this research: https://github.com/BuildWeek-AirBnB-Optimal-Price
 
-##Project Contributions:
-###Base Predictive Model
-** DCohen
-** MFa
-** RJProctor
+**Project Contributions:
 
-###Natural Language Processing Model
-** MFa
-** EPadilla
+Base Predictive Model
 
-###Plotly DASH Application
-** RJProctor
+ -DCohen
+ -MFa
+ -RJProctor
+
+**Natural Language Processing Model
+
+ - MFa
+ -EPadilla
+
+**Plotly DASH Application
+
+ -RJProctor
 
 
-##Team Members and Roles:
-###Debbie Cohen
-**Zoom Master
+**Team Members and Roles:
+
+Debbie Cohen
+
+ -Zoom Master
+ 
 https://github.com/dscohen75/dscohen75.github.io
 https://medium.com/@debbiecohen_22419
             
-###Moe Fa
-**Facilitator
-**GitHub Manager
+Moe Fa
+
+ -Facilitator
+ -GitHub Manager
         
 
-###Eduardo Padilla
-**Facilittor
-**GitHubManager
+Eduardo Padilla
+
+ -Facilittor
+ -GitHubManager
+ 
 https://medium.com/@eprecendez
 
-###R. Jeannine Proctor
-**Trello Manager
-**Documents Manager
-**Zoom Master
+R. Jeannine Proctor
+
+ -Trello Manager
+ -Documents Manager
+ -Zoom Master
+ 
 https://jproctor-rebecca.github.io/
 https://medium.com/@jproctor.m.ed.tn
 
 
-###Code Review Team Members:
-Taylor Curran
-Regina Dircio
-Robert Guffrie
-Ryan Herr
-Brendon Hoss
-Anika Nacey
-Thomas Phillips
-Raymond Tan
+**Code Review Team Members:
+
+Taylor Curran,
+Regina Dircio,
+Robert Guffrie,
+Ryan Herr,
+Brendon Hoss,
+Anika Nacey,
+Thomas Phillips,
+Raymond Tan,
+and
 Rebecca Duke-Wiesenberg
             
 
