@@ -65,7 +65,7 @@ column2 = dbc.Col(
             Ryan Herr,
             Brendon Hoss,
             Anika Nacey,
-            Thomas Phillips,
+            Tomas Phillips,
             Raymond Tan,
             and
             Rebecca Duke-Wiesenberg
