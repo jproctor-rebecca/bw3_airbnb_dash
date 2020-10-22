@@ -25,7 +25,7 @@ https://github.com/BuildWeek-AirBnB-Optimal-Price
 
 ---
 
-Project Contributions:
+Project Contributions, listed by member:
 
 Base Predictive Model
 
@@ -42,7 +42,7 @@ Plotly DASH Application
 
  -RJProctor
 
-
+---
 
 Team Members and Roles:
 
