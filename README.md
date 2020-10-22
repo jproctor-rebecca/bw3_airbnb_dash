@@ -14,7 +14,7 @@ Heroku - https://dashboard.heroku.com/apps/airbnbrjp/deploy/heroku-git
 
 Other repos associated with this research: https://github.com/BuildWeek-AirBnB-Optimal-Price
 
-**Project Contributions:
+Project Contributions:
 
 Base Predictive Model
 
@@ -22,17 +22,17 @@ Base Predictive Model
  -MFa
  -RJProctor
 
-**Natural Language Processing Model
+Natural Language Processing Model
 
- - MFa
+ -MFa
  -EPadilla
 
-**Plotly DASH Application
+Plotly DASH Application
 
  -RJProctor
 
 
-**Team Members and Roles:
+Team Members and Roles:
 
 Debbie Cohen
 
@@ -64,7 +64,7 @@ https://jproctor-rebecca.github.io/
 https://medium.com/@jproctor.m.ed.tn
 
 
-**Code Review Team Members:
+Code Review Team Members:
 
 Taylor Curran,
 Regina Dircio,
