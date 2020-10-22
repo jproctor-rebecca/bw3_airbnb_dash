@@ -145,7 +145,12 @@ column1 = dbc.Col(
             marks={n: str(n) for n in range(0, 605, 75)}, 
             className='mb-5', 
         ), 
+ ],  
+md=4,
+)
 
+column2 = dbc.Col(
+        [
         dcc.Markdown('## Non-numerical Features ', className='mb-5'),
         # '''
         # city
@@ -172,13 +177,10 @@ column1 = dbc.Col(
                 ] 
             )]
         ),
-    ],  
-    style={'width': '33%', 'display': 'inline-block', 'float': 'left'},
-)
+   
 
 
-    column2 = dbc.Col(
-        [
+
         # '''
         # property type
         # array(['Apartment', 'House', 'Condominium', 'Loft', 'Townhouse', 'Hostel',
@@ -308,15 +310,15 @@ column1 = dbc.Col(
                 ], 
             )]),
     ],  
-    style={'width': '33%', 'display': 'inline-block'},
+md=4,
 )
 
-    column3 = dbc.Col(
+column3 = dbc.Col(
     [
         html.H2('Predicted Rental Price', className='mb-5'), 
         html.Div(id='int_price', className='lead')
-    ]
-    style={'width': '33%', 'display': 'inline-block', 'float': 'left'},
+    ],
+md=4,
 )
 
 
