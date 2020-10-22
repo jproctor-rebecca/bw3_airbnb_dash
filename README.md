@@ -8,6 +8,10 @@ NLP Model - https://github.com/BuildWeek-AirBnB-Optimal-Price/application/tree/m
 
 Source data (you will need to follow the link and download the zip file): https://www.kaggle.com/rudymizrahi/airbnb-listings-in-major-us-cities-deloitte-ml?select=test.csv
 
+Trello link:
+
+https://trello.com/b/qPFcV5eL/ft-bw-ds-airbnb
+
 ---
 
 Using historical booking data from AirBnB, AirBnB Optimal Price will allow a user to predict the trends for optimal pricing for their properties based on variables such as location, time of year and other considerations. The user will be able to manage multiple properties at different locations and be able to make adjustments to their expectations for booking, as well as what they should be charging.
