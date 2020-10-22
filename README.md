@@ -63,7 +63,7 @@ Moe Fa
 
 Eduardo Padilla
 
- -Facilittor
+ -Facilitator
  -GitHubManager
  
 https://medium.com/@eprecendez
