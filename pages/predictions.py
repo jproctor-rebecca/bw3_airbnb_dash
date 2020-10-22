@@ -1,8 +1,8 @@
 '''
 user interface for
 predictive model
-(cleaned data developed by MFa
-and DCohen)
+(cleaned data developed by MFa, 
+DCohen, and RJProctor)
 (baseline predictive model
 developed by DCohen, MFa 
 and RJProctor)
@@ -36,33 +36,24 @@ column1 = dbc.Col(
         
         html.Img(src='assets/AirBnB_1.jpg', className='img-fluid'),
         dcc.Markdown(
-            '''
+            # '''
         
-            ## Predictions
+            # ## Predictions
 
-            Complete the Form on this page to predict the price of 
-            an AirBnB or multiple types of AirBnBs.
+            # Complete the Form on this page to predict the price of 
+            # an AirBnB or multiple types of AirBnBs.
 
-            When you have selected all of your responses, select the 
-            'Submit' button below to retriev your prediction(s).
+            # When you have selected all of your responses, select the 
+            # 'Submit' button below to retriev your prediction(s).
 
-            Have fun!
+            # Have fun!
 
-            '''
-        ),
-        # '''
-        # submit button for prediction
-        # '''
-        [
-        html.Button(id='prediction-content', n_clicks=0, children='Submit'),
-        dbc.Button('Submit', id='Submit', color='primary'),
-        html.Div(id='prediction-content', children= 'options'),
-        ],
-        
-        [
+            # '''
+            [
             html.H2('Expected Rental Price: ', className='mb-5'), 
             html.Div(id='prediction-content', className='lead')
-        ],
+            ]
+        ),
 
     ],
     md=4,
@@ -74,13 +65,13 @@ column2 = dbc.Col(
     dcc.Markdown('## Numerical Features ', className='mb-5'),
     # '''
     # # of people the booking accommodates
-    # 'accomodates'
+    # 'accommodates'
     # 1-16
 
     # '''
-    dcc.Markdown('Accomodates: '),
+    dcc.Markdown('Accommodates: '),
     dcc.Slider(
-            id='accomodates', 
+            id='accommodates', 
             min=1, 
             max=16, 
             step=1, 
@@ -145,7 +136,7 @@ column2 = dbc.Col(
     # '''
     dcc.Markdown('Host Reviews: '),
     dcc.Slider(
-            id='reviews', 
+            id='number_of_reviews', 
             min=0, 
             max=605, 
             step=5, 
@@ -180,7 +171,8 @@ column3 = dbc.Col(
                             {'label': 'Washington, DC', 'value': 'DC'},
                             {'label': 'Los Angeles', 'value': 'LA'},
                             {'label': 'Boston', 'value': 'Boston'}
-                            ]
+                            ],
+                        className='mb-5'
                         ),
                 ] 
             )]
@@ -202,7 +194,7 @@ column3 = dbc.Col(
                 [
                     'Select a Single Property Type or Multiple Property Types',
                     dcc.Dropdown(
-                        id='properties', multi=True,
+                        id='property_type', multi=True,
                         options=[
                             {'label': 'Camper/RV', 'value': 'Camper/RV'},
                             {'label': 'Condominium', 'value': 'Condominium'},
@@ -239,10 +231,11 @@ column3 = dbc.Col(
                             {'label': 'Cave', 'value': 'Cave'},
                             {'label': 'Lighthouse', 'value': 'Lighthouse'},
                             {'label': 'Island', 'value': 'Island'},
-                            ]
+                            ],
+                        className='mb-5'
                         ),
-                ] 
-            )]
+                ], 
+            )],
         ),
         # '''
         # room type
@@ -255,15 +248,16 @@ column3 = dbc.Col(
                 [
                     'Select a Single Room Type or Multiple Room Types',
                     dcc.Dropdown(
-                        id='room', multi=True,
+                        id='room_type', multi=True,
                         options=[
                             {'label': 'Entire Home or Apartment', 'value': 'Entire home/apt'},
                             {'label': 'Private Room', 'value': 'Private room'},
                             {'label': 'Shared Room', 'value': 'Shared room'}
-                            ]
+                            ],
+                        className='mb-5'
                         ),
-                ] 
-            )]
+                ], 
+            )],
         ),
         # '''
         # cancellation policy
@@ -277,17 +271,18 @@ column3 = dbc.Col(
                 [
                     'Select a Single Cancellation Policy or Multiple Cancellation Policies',
                     dcc.Dropdown(
-                        id='cancellation', multi=True,
+                        id='cancellation_policy', multi=True,
                         options=[
                             {'label': 'Flexible', 'value': 'flexible'},
                             {'label': 'Moderate', 'value': 'moderate'},
                             {'label': 'Strict', 'value': 'strict'},
                             {'label': 'Super Strict (30)', 'value': 'super_strict_30'},
                             {'label': 'Super Strict (60)', 'value': 'super_strict_60'},
-                            ]
+                            ],
+                        className='mb-5'
                         ),
                 ],
-            )]
+            )],
         ),
         # '''
         # cleaning fee
@@ -301,14 +296,15 @@ column3 = dbc.Col(
                 [
                     'Select a True if the Cleaning Fee is Include in the Rental Price',
                     dcc.Dropdown(
-                        id='cleaning', multi=False,
+                        id='cleaning_fee', multi=False,
                         options=[
                             {'label': 'True', 'value': 'True'},
                             {'label': 'False', 'value': 'False'},
-                            ]
+                            ],
+                        className='mb-5'
                         ),
-                ] 
-            )])
+                ], 
+            )]),
     ],  
 md=4,
 )
@@ -317,32 +313,34 @@ md=4,
     dash.dependencies.Output('prediction-content', 'children'),
     # user input options require Input dependency setting
     [
-        dash.dependencies.Input('accomodates', 'search_value'),
-        dash.dependencies.Input('bedrooms', 'search_value'),
-        dash.dependencies.Input('beds', 'search_value'),
-        dash.dependencies.Input('bathrooms', 'search_value'),
-        dash.dependencies.Input('reviews', 'search_value'),
-        dash.dependencies.Input('city', 'search_value'),
-        dash.dependencies.Input('properties', 'search_value'),
-        dash.dependencies.Input('room', 'search_value'),
-        dash.dependencies.Input('cancellation', 'search_value'),
-        dash.dependencies.Input('cleaning', 'value'),
+        dash.dependencies.Input('accommodates', 'value'),
+        dash.dependencies.Input('bedrooms', 'value'),
+        dash.dependencies.Input('beds', 'value'),
+        dash.dependencies.Input('bathrooms', 'value'),
+        dash.dependencies.Input('number_of_reviews', 'value'),
+        dash.dependencies.Input('city', 'value'),
+        dash.dependencies.Input('property_type', 'value'),
+        dash.dependencies.Input('room_type', 'value'),
+        dash.dependencies.Input('cancellation_policy', 'value'),
+        dash.dependencies.Input('cleaning_fee', 'value'),
     ],
     # multi input options require additional State dependency setting
     [
         dash.dependencies.State('city', 'value'),
-        dash.dependencies.State('properties', 'value'),
-        dash.dependencies.State('room', 'value'),
-        dash.dependencies.State('cancellation', 'value'),
+        dash.dependencies.State('property_type', 'value'),
+        dash.dependencies.State('room_type', 'value'),
+        dash.dependencies.State('cancellation_policy', 'value'),
     ],
 )
-def predict(accomodates, bedrooms, beds, bathrooms, reviews, city,
-            properties, room, cancellation, cleaning, search_value):
+
+
+def predict(property_type, room_type, accommodates,	bathrooms, cancellation_policy,
+            cleaning_fee, city, number_of_reviews, bedrooms, beds):
     df = pd.DataFrame(
-        columns=['accomodates','bedrooms','beds', 'bathrooms', 'reviews', 'city',
-            'propertiess', 'room', 'cancellation', 'cleaning', 'search_value'], 
-        data=[[accomodates, bedrooms, beds,bathrooms, reviews, city,
-            properties, room, cancellation, cleaning, search_value]]
+        columns=['property_type', 'room_type', 'accommodates',	'bathrooms', 'cancellation_policy',
+            'cleaning_fee', 'city', 'number_of_reviews', 'bedrooms', 'beds'], 
+        data=[[property_type, room_type, accommodates,	bathrooms, cancellation_policy,
+            cleaning_fee, city, number_of_reviews, bedrooms, beds]]
     )
     y_pred = pipeline.predict(df)[0]
     return f'{y_pred}'
