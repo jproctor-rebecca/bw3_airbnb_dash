@@ -172,6 +172,13 @@ column1 = dbc.Col(
                 ] 
             )]
         ),
+    ],  
+    style={'width': '33%', 'display': 'inline-block', 'float': 'left'},
+)
+
+
+    column2 = dbc.Col(
+        [
         # '''
         # property type
         # array(['Apartment', 'House', 'Condominium', 'Loft', 'Townhouse', 'Hostel',
@@ -301,14 +308,18 @@ column1 = dbc.Col(
                 ], 
             )]),
     ],  
-md=4,
+    style={'width': '33%', 'display': 'inline-block'},
 )
-column2 = dbc.Col(
+
+    column3 = dbc.Col(
     [
         html.H2('Predicted Rental Price', className='mb-5'), 
         html.Div(id='int_price', className='lead')
     ]
+    style={'width': '33%', 'display': 'inline-block', 'float': 'left'},
 )
+
+
 @app.callback(
     Output('int_price', 'children'),
     # user input options require Input dependency setting
@@ -377,7 +388,7 @@ def predict(property_type, room_type, accommodates,	bathrooms, cancellation_poli
 #     ]
 
 
-layout = dbc.Row([column1, column2])
+layout = dbc.Row([column1,column2,column3])
 
 # Run app server: https://dash.plot.ly/getting-started
 # if __name__ == '__main__':

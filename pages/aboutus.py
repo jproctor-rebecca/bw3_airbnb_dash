@@ -63,7 +63,7 @@ column2 = dbc.Col(
             Regina Dircio,
             Robert Giuffrie,
             Ryan Herr,
-            Brendon Hoss,
+            Brendan Hoss,
             Anika Nacey,
             Tomas Phillips,
             Raymond Tan,
