@@ -14,11 +14,55 @@ Heroku - https://dashboard.heroku.com/apps/airbnbrjp/deploy/heroku-git
 
 Other repos associated with this research: https://github.com/BuildWeek-AirBnB-Optimal-Price
 
-Team Members:
-DCohen
-MFa
-EPadilla
-RJProctor
+##Project Contributions:
+###Base Predictive Model
+** DCohen
+** MFa
+** RJProctor
+
+###Natural Language Processing Model
+** MFa
+** EPadilla
+
+###Plotly DASH Application
+** RJProctor
+
+
+##Team Members and Roles:
+###Debbie Cohen
+**Zoom Master
+https://github.com/dscohen75/dscohen75.github.io
+https://medium.com/@debbiecohen_22419
+            
+###Moe Fa
+**Facilitator
+**GitHub Manager
+        
+
+###Eduardo Padilla
+**Facilittor
+**GitHubManager
+https://medium.com/@eprecendez
+
+###R. Jeannine Proctor
+**Trello Manager
+**Documents Manager
+**Zoom Master
+https://jproctor-rebecca.github.io/
+https://medium.com/@jproctor.m.ed.tn
+
+
+###Code Review Team Members:
+Taylor Curran
+Regina Dircio
+Robert Guffrie
+Ryan Herr
+Brendon Hoss
+Anika Nacey
+Thomas Phillips
+Raymond Tan
+Rebecca Duke-Wiesenberg
+            
 
 
 
