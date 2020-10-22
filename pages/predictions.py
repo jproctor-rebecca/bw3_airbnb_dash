@@ -35,7 +35,7 @@ column1 = dbc.Col(
     [
         
         html.Img(src='assets/AirBnB_1.jpg', className='img-fluid'),
-        
+        [Graphic Courtesy of](https://www.kdrv.com/content/news/Airbnb-Hosts-Open-up-Their-Homes-to-Fire-Evacuees-490037431.html)
         dcc.Markdown(
             # '''
         

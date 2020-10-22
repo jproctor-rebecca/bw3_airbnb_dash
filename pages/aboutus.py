@@ -19,6 +19,7 @@ from app import app
 # https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout
 column1 = dbc.Col(
     [   html.Img(src='assets/lambda.pnd', className='img-fluid')
+        [Graphic Courtesy of](https://lambdaschool.com/)
         dcc.Markdown(
             """
         
@@ -47,6 +48,21 @@ column1 = dbc.Div(
             ##R. Jeannine Proctor
             https://jproctor-rebecca.github.io/
             https://medium.com/@jproctor.m.ed.tn
+
+
+            ##Code Review Team Members:
+            Taylor Curran
+            Regina Dircio
+            Robert Guffrie
+            Ryan Herr
+            Brendon Hoss
+            Anika Nacey
+            Thomas Phillips
+            Raymond Tan
+            Rebecca Duke-Wiesenberg
+            
+
+            
             
             '''
             , 
