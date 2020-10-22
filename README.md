@@ -3,7 +3,10 @@
 
 What price is right?
 
-Colab link: https://github.com/BuildWeek-AirBnB-Optimal-Price/application/tree/master/notebooks/AirBnB_Optimal_Price_2.ipynb
+Colab link: 
+https://github.com/BuildWeek-AirBnB-Optimal-Price/application/tree/master/notebooks/AirBnB_Optimal_Price_2.ipynb
+
+https://github.com/BuildWeek-AirBnB-Optimal-Price/application/tree/master/notebooks/Moe_Unit_4_BW_test_NoteBook
 
 Source data (you will need to follow the link and download the zip file): https://www.kaggle.com/rudymizrahi/airbnb-listings-in-major-us-cities-deloitte-ml?select=test.csv
 
