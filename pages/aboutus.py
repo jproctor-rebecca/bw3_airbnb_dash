@@ -67,8 +67,9 @@ column2 = dbc.Col(
             Anika Nacey,
             Tomas Phillips,
             Raymond Tan,
-            and
-            Rebecca Duke-Wiesenberg
+            Rebecca Duke-Wiesenberg,
+            and 
+            Tally Wiesenberg
             
             """
         ),

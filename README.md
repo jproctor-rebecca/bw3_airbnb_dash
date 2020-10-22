@@ -92,8 +92,9 @@ Brendan Hoss,
 Anika Nacey,
 Thomas Phillips,
 Raymond Tan,
-and
-Rebecca Duke-Wiesenberg
+Rebecca Duke-Wiesenberg,
+and 
+Tally Wiesenberg
             
 
 
