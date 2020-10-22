@@ -35,6 +35,7 @@ column1 = dbc.Col(
     [
         
         html.Img(src='assets/AirBnB_1.jpg', className='img-fluid'),
+        
         dcc.Markdown(
             # '''
         
