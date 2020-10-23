@@ -27,7 +27,7 @@ column1 = dbc.Col(
 
             Using historical booking data from AirBnB, this AirBnB Optimal Price generator will allow a you to predict the trends for optimal pricing for a property based on variables such as location, time of year and other considerations. 
             
-            You will be able to manage multiple properties at different locations and be able to make adjustments to your expectations for booking, as well as what you should be charging at your own AirBnB property.
+            You will be able to manage multiple properties at different locations and be able to make adjustments to your expectations for bookings.
             """
         ),
         dcc.Link(dbc.Button('For Right Price...', color='primary'), href='/predictions')
