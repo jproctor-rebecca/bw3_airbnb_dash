@@ -355,7 +355,7 @@ def predict(property_type, room_type, accommodates,	bathrooms, cancellation_poli
             cleaning_fee, city, number_of_reviews, bedrooms, beds]]
     )
     y_pred = pipeline.predict(df)[0]
-    return f'${y_pred:.2f}'
+    return f'${y_pred:.2f} per day'
     #return print(df)
 
 # def update_output(start_date, end_date):
