@@ -46,7 +46,7 @@ column1 = dbc.Col(
 
             Natural language processing (NLP) is performed on the data before it is passed through the final model (LGBMR).
             
-            Feature importance and model hyperparameter tuning is performed on the model, leaving us with ten most importand features/parameters to pass through the application for the end user to consider when they 'predict' their price.   
+            Feature importance and model hyperparameter tuning is performed on the model, leaving us with ten most important features/parameters to pass through the application for the end user to consider when they 'predict' their price.   
 
             """
         ),
