@@ -22,24 +22,31 @@ column1 = dbc.Col(
             """
             ## Methodology of the Team: 
             # 
-            Initial exploration of our AirBnB dataset revealed 74,111 observations, with 28 features, and a target variable, log_price.
+            Initial exploration of our AirBnB dataset reveals 74,111 observations, with 28 features, and a target variable, log_price.
 
-            The first steps were to prepare the dataset to fit an exploratory linear model. 
+            The first step is to prepare the dataset to fit an exploratory linear model. 
 
-            Variables with > 5% missing data were removed.
-
-
-            Variables with high cardinality or unusable variance were removed.
-
-            Rare/ nontraditional property types were grouped together to reduce the cardinality of the property type variable.
-
-            Log_price was exponentiated to return actual price. 
+            Variables with > 5% missing data are removed.
 
 
-            Baseline MAE was 83.3.
+            Variables with high cardinality or unusable variance are removed.
+
+            Rare/nontraditional property types are grouped together to reduce the cardinality of the property type variable.
+
+            Log_price is exponentiated to return actual price. 
 
 
-            Linear Regression and LassoCV models were fit using Scikit-Learn. Categorical variables were one-hot encoded, missing values were imputed using the mean method, numerical variables were standardized. 
+            
+
+            Categorical variables were one-hot encoded, missing values are imputed using the mean method, numerical variables were standardized. 
+
+            The AirBnB city data is then passed through each of the following algorithms:
+            
+            Linear Regression, LassoCV, Decision Tree Regressor, XGBmodels, and LightGBM Regressor (LGBMR), until we decide on LGBMR as the best model for this dataset.
+
+            Natural language processing (NLP) is performed on the data before it is passed through the final model (LGBMR).
+            
+            Feature importance and model hyperparameter tuning is performed on the model, leaving us with ten most importand features/parameters to pass through the application for the end user to consider when they 'predict' their price.   
 
             """
         ),
